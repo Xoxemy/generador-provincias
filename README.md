@@ -4,7 +4,6 @@ Esto es una pagina web basica de generación de provincias, esta web tan sencill
 
 **Proximamente añadire otras funciones como una barra de busqueda para los filtros**
 
-
 Preview: [Pagina Web](https://provincias-generador.glitch.me/)
 
 ```markdown
