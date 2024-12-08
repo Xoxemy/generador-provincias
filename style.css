@@ -1,160 +1,162 @@
-/* Global Reset */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-
-/* Body Styling */
-
-body {
-    font-family: 'Comic Sans MS', sans-serif;
-    background: url('https://cdn.glitch.global/412b703b-fc03-46ea-bdc1-88c5d2433389/bg-1-1920.7bb0dcd8.svg?v=1733684337321') no-repeat center center fixed;
-    background-size: cover;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-}
-
-
-/* Header Styling */
-
-.header {
-    text-align: center;
-    padding: 20px 0;
-}
-
-.title-image {
-    width: 70%;
-    height: auto;
-    margin-top: 10%;
-    transition: transform 0.3s ease;
-}
-
-.main-title {
-    font-size: 3rem;
-    color: #ffffff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-
-/* Main Content Styling */
-
-.content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    padding: 20px;
-}
-
-.info {
-    text-align: center;
-    padding: 30px;
-    border-radius: 15px;
-    /* background: rgba(255, 255, 255, 0.7); */
-    max-width: 90%;
-    margin: auto;
-}
-
-.province-name {
-    font-size: 2rem;
-    color: white;
-}
-
-.generate-image {
-    width: 60px;
-    height: auto;
-    transition: transform 20s;
-}
-
-.generate-image:hover {
-    transform: scale(1.1) rotate(1000deg);
-}
-
-
-/* Footer Styling */
-
-.footer {
-    text-align: center;
-    padding: 10px 0;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    /* Para que se ajusten en pantallas pequeñas */
-}
-
-.footer-link {
-    display: inline-block;
-}
-
-.footer-image {
-    width: 100px;
-    height: auto;
-    transition: transform 0.3s ease;
-}
-
-.footer-image:hover {
-    transform: scale(1.1);
-}
-
-
-/* Mobile Specific Styles */
-
-@media (max-width: 768px) {
-    .main-title {
-        font-size: 2.5rem;
-        /* Reduce el tamaño de la fuente para móviles */
-    }
-    .title-image {
-        width: 80%;
-        /* Ajusta el tamaño de la imagen en móviles */
-    }
-    .province-name {
-        font-size: 1.5rem;
-        /* Reduce el tamaño del texto */
-    }
-    .generate-image {
-        width: 50px;
-        /* Ajusta el tamaño de la imagen */
-    }
-    .footer-image {
-        width: 80px;
-        /* Ajusta el tamaño de las imágenes de pie de página */
-    }
-    .footer-links {
-        gap: 10px;
-        /* Reduce el espacio entre los iconos en pantallas pequeñas */
-    }
-}
-
-@media (max-width: 480px) {
-    .main-title {
-        font-size: 2rem;
-        /* Reduce aún más el tamaño de la fuente para pantallas muy pequeñas */
-    }
-    .title-image {
-        width: 90%;
-        /* Ajusta el tamaño de la imagen aún más */
-    }
-    .province-name {
-        font-size: 1.2rem;
-        /* Ajusta el tamaño del texto */
-    }
-    .generate-image {
-        width: 40px;
-        /* Ajusta aún más el tamaño de la imagen */
-    }
-    .footer-image {
-        width: 60px;
-        /* Ajusta el tamaño de las imágenes de pie de página */
-    }
-}
+  /* Global Reset */
+  
+  * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+  }
+  /* Body Styling */
+  
+  body {
+      font-family: 'Comic Sans MS', sans-serif;
+      background: url('https://cdn.glitch.global/412b703b-fc03-46ea-bdc1-88c5d2433389/bg-1-1920.7bb0dcd8.svg?v=1733684337321') no-repeat center center fixed;
+      background-size: cover;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100vh;
+      overflow: hidden;
+      /* Oculta las barras de desplazamiento */
+  }
+  /* Header Styling */
+  
+  .main-header {
+      position: relative;
+      padding: 10px 0;
+  }
+  
+  .btn-nav {
+      color: white;
+      font-size: 30px;
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      cursor: pointer;
+      padding: 6.5px 15px;
+      transition: .2s ease;
+      background: rgba(0, 0, 0, .1);
+  }
+  
+  .btn-nav:hover {
+      background: rgba(0, 0, 0, .3);
+  }
+  
+  #btn-nav {
+      display: none;
+  }
+  
+  #btn-nav:checked~nav {
+      transform: translateX(0);
+  }
+  
+  nav {
+      position: absolute;
+      left: 0;
+      top: 80px;
+      width: 200px;
+      height: calc(100vh - 50px);
+      background: rgba(0, 0, 0, .3);
+      transform: translateX(-100%);
+      transition: .4s ease;
+      overflow-y: auto;
+  }
+  /* Filters Styling */
+  
+  .filters {
+      padding: 10px;
+      color: white;
+      font-size: 14px;
+  }
+  
+  .filters h3 {
+      margin-bottom: 10px;
+      color: #ffffff;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      border-bottom: 1px solid rgba(255, 255, 255, .5);
+      padding-bottom: 5px;
+  }
+  
+  .filters label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+  }
+  
+  .filters input[type="checkbox"] {
+      margin-right: 8px;
+  }
+  /* Main Title Styling */
+  
+  .main-title {
+      text-align: center;
+      margin-top: 20px;
+  }
+  
+  .title-image {
+      width: 70%;
+      height: auto;
+      margin: 0 auto;
+      display: block;
+      cursor: pointer;
+  }
+  /* Main Content Styling */
+  
+  .content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex: 1;
+      padding: 20px;
+  }
+  
+  .info {
+      text-align: center;
+      padding: 30px;
+      border-radius: 15px;
+      max-width: 90%;
+      margin: auto;
+  }
+  
+  .province-name {
+      font-size: 2rem;
+      color: white;
+  }
+  
+  .generate-image {
+      width: 60px;
+      height: auto;
+      transition: transform 20s;
+  }
+  
+  .generate-image:hover {
+      transform: scale(1.1) rotate(1000deg);
+  }
+  /* Footer Styling */
+  
+  .footer {
+      text-align: center;
+      padding: 10px 0;
+  }
+  
+  .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+  }
+  
+  .footer-link {
+      display: inline-block;
+  }
+  
+  .footer-image {
+      width: 100px;
+      height: auto;
+      transition: transform 0.3s ease;
+  }
+  
+  .footer-image:hover {
+      transform: scale(1.1);
+  }
