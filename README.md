@@ -2,6 +2,9 @@
 
 Esto es una pagina web basica de generación de provincias, esta web tan sencilla nacio de una de mis necesidades, de hecho esta creada en glith, y alojada en el mismo sitio
 
+**Proximamente añadire otras funciones como una barra de busqueda para los filtros**
+
+
 Preview: [Pagina Web](https://provincias-generador.glitch.me/)
 
 ```markdown
