@@ -1,0 +1,160 @@
+/* Global Reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* Body Styling */
+
+body {
+    font-family: 'Comic Sans MS', sans-serif;
+    background: url('https://cdn.glitch.global/412b703b-fc03-46ea-bdc1-88c5d2433389/bg-1-1920.7bb0dcd8.svg?v=1733684337321') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+}
+
+
+/* Header Styling */
+
+.header {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.title-image {
+    width: 70%;
+    height: auto;
+    margin-top: 10%;
+    transition: transform 0.3s ease;
+}
+
+.main-title {
+    font-size: 3rem;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Main Content Styling */
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    padding: 20px;
+}
+
+.info {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    /* background: rgba(255, 255, 255, 0.7); */
+    max-width: 90%;
+    margin: auto;
+}
+
+.province-name {
+    font-size: 2rem;
+    color: white;
+}
+
+.generate-image {
+    width: 60px;
+    height: auto;
+    transition: transform 20s;
+}
+
+.generate-image:hover {
+    transform: scale(1.1) rotate(1000deg);
+}
+
+
+/* Footer Styling */
+
+.footer {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    /* Para que se ajusten en pantallas pequeñas */
+}
+
+.footer-link {
+    display: inline-block;
+}
+
+.footer-image {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.footer-image:hover {
+    transform: scale(1.1);
+}
+
+
+/* Mobile Specific Styles */
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.5rem;
+        /* Reduce el tamaño de la fuente para móviles */
+    }
+    .title-image {
+        width: 80%;
+        /* Ajusta el tamaño de la imagen en móviles */
+    }
+    .province-name {
+        font-size: 1.5rem;
+        /* Reduce el tamaño del texto */
+    }
+    .generate-image {
+        width: 50px;
+        /* Ajusta el tamaño de la imagen */
+    }
+    .footer-image {
+        width: 80px;
+        /* Ajusta el tamaño de las imágenes de pie de página */
+    }
+    .footer-links {
+        gap: 10px;
+        /* Reduce el espacio entre los iconos en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2rem;
+        /* Reduce aún más el tamaño de la fuente para pantallas muy pequeñas */
+    }
+    .title-image {
+        width: 90%;
+        /* Ajusta el tamaño de la imagen aún más */
+    }
+    .province-name {
+        font-size: 1.2rem;
+        /* Ajusta el tamaño del texto */
+    }
+    .generate-image {
+        width: 40px;
+        /* Ajusta aún más el tamaño de la imagen */
+    }
+    .footer-image {
+        width: 60px;
+        /* Ajusta el tamaño de las imágenes de pie de página */
+    }
+}
