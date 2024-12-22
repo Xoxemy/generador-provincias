@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -7,29 +7,25 @@
     <title>Generador de Provincias</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
     <link rel="icon" href="https://images.emojiterra.com/openmoji/v15.0/1024px/1f30d.png" />
-
 </head>
 
 <body>
     <header class="main-header">
         <label for="btn-nav" class="btn-nav"><i class="fas fa-bars"></i></label>
         <input type="checkbox" id="btn-nav">
-
         <nav>
-
             <!-- Filtros -->
             <div class="filters" id="filters-container">
-                <h3>Filtros </h3>
-                <p><small>Selecciona las ciudades que no quieras que aparezcan en el generador</small></p>
-                <br>
+                <!-- Buscador de provincias -->
+                <input type="text" id="search-filter" placeholder="Buscar provincia..." oninput="filtrarProvincias()">
+                <br><br>
             </div>
         </nav>
-
         <h1 class="main-title">
             <a href="#" class="footer-link">
-                <img src="https://cdn.glitch.global/412b703b-fc03-46ea-bdc1-88c5d2433389/title.png?v=1733686928043" onclick="mostrarAlerta()" class="title-image">
+                <img src="https://cdn.glitch.global/412b703b-fc03-46ea-bdc1-88c5d2433389/title.png?v=1733686928043" class="title-image">
             </a>
         </h1>
     </header>
