@@ -15,6 +15,8 @@ Preview: [Pagina Web](https://provincias-generador.glitch.me/)
 
 - HTML5
 - CSS3
+- JS
+
 
 ## Cómo Usar
 
