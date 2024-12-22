@@ -33,7 +33,7 @@ function generarFiltros() {
     if (!document.getElementById("search-description")) {
         const description = document.createElement('p');
         description.id = "search-description";
-
+                      
 
         description.innerHTML = '<h3>Filtros</h3>  <small>Selecciona las ciudades que no quieras que aparezcan en el generador</small>';
         container.insertBefore(description, container.firstChild); // Agregar al principio del contenedor
@@ -71,11 +71,11 @@ function filtrarProvincias() {
     container.innerHTML = '';
     container.appendChild(description); // Re-agregar el texto informativo
     container.appendChild(searchInput); // Re-agregar el input de búsqueda
-
+    
     // Volver a añadir la barra de búsqueda
     container.appendChild(document.createElement("br"));
     container.appendChild(document.createElement("br"));
-
+    
     // Filtrar las provincias según la búsqueda
     provincias.filter(provincia => provincia.toLowerCase().includes(query)).forEach(provincia => {
         const label = document.createElement("label");
@@ -83,7 +83,7 @@ function filtrarProvincias() {
         container.appendChild(label);
         container.appendChild(document.createElement("br"));
     });
-
+    
     // Volver a enfocar el campo de búsqueda si lo tenías seleccionado
     if (currentFocus) {
         searchInput.focus();
