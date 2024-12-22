@@ -1,3 +1,4 @@
+// Lista de provincias
 const provincias = [
     "Álava", "Albacete", "Alicante", "Almería", "Asturias", "Ávila", "Badajoz",
     "Barcelona", "Burgos", "Cáceres", "Cádiz", "Cantabria", "Castellón", "Ciudad Real",
@@ -13,16 +14,37 @@ const filtros = {};
 // Función para generar los checkboxes dinámicamente
 function generarFiltros() {
     const container = document.getElementById("filters-container");
+
+    // Crear barra de búsqueda solo si no existe
+    if (!document.getElementById("search-filter")) {
+        const searchInput = document.createElement('input');
+        searchInput.type = "text";
+        searchInput.id = "search-filter";
+        searchInput.placeholder = "Buscar provincia...";
+        searchInput.oninput = filtrarProvincias;
+
+        // Añadir la barra de búsqueda al contenedor
+        container.appendChild(searchInput);
+        container.appendChild(document.createElement("br"));
+        container.appendChild(document.createElement("br"));
+    }
+
+    // Crear texto de información y descripción solo una vez
+    if (!document.getElementById("search-description")) {
+        const description = document.createElement('p');
+        description.id = "search-description";
+                      
+
+        description.innerHTML = '<h3>Filtros</h3>  <small>Selecciona las ciudades que no quieras que aparezcan en el generador</small>';
+        container.insertBefore(description, container.firstChild); // Agregar al principio del contenedor
+    }
+
+    // Crear los checkboxes de provincias
     provincias.forEach(provincia => {
-        // Crear el checkbox para cada provincia
         const label = document.createElement("label");
         label.innerHTML = `<input type="checkbox" id="filter${provincia}" onclick="actualizarFiltros()"> ${provincia}`;
-
-        // Añadir el checkbox al contenedor
         container.appendChild(label);
         container.appendChild(document.createElement("br"));
-
-        // Inicializar el objeto filtros
         filtros[provincia] = false; // Por defecto, no se filtra ninguna provincia
     });
 }
@@ -33,6 +55,39 @@ function actualizarFiltros() {
         const checkbox = document.getElementById(`filter${provincia}`);
         filtros[provincia] = checkbox.checked;
     });
+}
+
+// Filtrar las provincias que coinciden con la búsqueda
+function filtrarProvincias() {
+    const query = document.getElementById("search-filter").value.toLowerCase();
+    const container = document.getElementById("filters-container");
+
+    // Guardar el foco del input de búsqueda
+    const searchInput = document.getElementById("search-filter");
+    const currentFocus = document.activeElement === searchInput;
+
+    // Limpiar los checkboxes existentes, pero dejar el campo de búsqueda y el texto
+    const description = document.getElementById("search-description");
+    container.innerHTML = '';
+    container.appendChild(description); // Re-agregar el texto informativo
+    container.appendChild(searchInput); // Re-agregar el input de búsqueda
+    
+    // Volver a añadir la barra de búsqueda
+    container.appendChild(document.createElement("br"));
+    container.appendChild(document.createElement("br"));
+    
+    // Filtrar las provincias según la búsqueda
+    provincias.filter(provincia => provincia.toLowerCase().includes(query)).forEach(provincia => {
+        const label = document.createElement("label");
+        label.innerHTML = `<input type="checkbox" id="filter${provincia}" onclick="actualizarFiltros()"> ${provincia}`;
+        container.appendChild(label);
+        container.appendChild(document.createElement("br"));
+    });
+    
+    // Volver a enfocar el campo de búsqueda si lo tenías seleccionado
+    if (currentFocus) {
+        searchInput.focus();
+    }
 }
 
 // Función para generar el nombre de la provincia
@@ -48,10 +103,6 @@ function generarNombre() {
     }
 }
 
-function mostrarAlerta() {
-    alert("Has encontrado un easter-egg");
-    alert("Esta web ha sido creada por Juan Carlos");
-}
 
 // Llamar a la función para generar los filtros cuando la página cargue
 window.onload = generarFiltros;
